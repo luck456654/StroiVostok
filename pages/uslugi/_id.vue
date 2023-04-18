@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{$route.params.id}}
     <Bredcrumbs :pagetitle="title" :firstParent="firstParent" :secondParent="secondParent" v-if="template==3" />
     <Bredcrumbs :pagetitle="title" :firstParent="firstParent" v-if="template==4" />
     <div class="container">
@@ -49,6 +50,7 @@
       </section>
     </div>
     <TablePrices  v-if="$route.params.id == 'stroitelstvo-fundamenta-pod-klyuch'"></TablePrices>
+    <TableKrovlya  v-if="$route.params.id == 'krovlya-i-monsarda'"></TableKrovlya>
       <section class="price-section" v-if="template==3"  v-show="false">
         <div class="container">
           <h3>Стоимость работ</h3>
@@ -118,9 +120,10 @@ import CalcGroundWork from "~/components/calc-groundwork.vue";
 import Work from "~/components/product.vue";
 import Request from "~/components/request.vue";
 import TablePrices from "~/components/tableprices.vue";
+import TableKrovlya from "~/components/tablekrovlya.vue";
 
 export default {
-  components: { Bredcrumbs, Calc, Servises, Work, Request, CalcGroundWork, TablePrices },
+  components: { Bredcrumbs, Calc, Servises, Work, Request, CalcGroundWork, TablePrices, TableKrovlya },
   
    data() {
     return {
